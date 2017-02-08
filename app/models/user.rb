@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   enum visibility: { visible: 0, hidden: 1 }
+  has_many :tweets
 end
