@@ -3,3 +3,9 @@ $baseColor: #fff;
 $gray: #8899a6;
 $mainWordColor: #292f33;
 $backGroundColor: #f5f8fa;
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}

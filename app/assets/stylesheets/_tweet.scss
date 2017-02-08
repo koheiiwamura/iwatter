@@ -1,0 +1,56 @@
+.main-left {
+  width: 750px;
+  padding: 10px;
+  float: left;
+  background-color: $baseColor;
+
+  .tweet-form {
+    width: 500px;
+    height: 50px;
+  }
+  .tweet-home {
+    padding-top: 40px;
+  }
+  .tweets {
+    border-top: 1px dotted $gray;
+    margin-top: 10px;
+  }
+
+  .tweet {
+    padding: 20px 10px 10px;
+    border-bottom: 1px dotted $gray;
+    &__account-name {
+      color: $mainBlueColor;
+      font-weight: bold;
+    }
+    &__time {
+      font-size: 10px;
+    }
+  }
+}
+
+
+.main-right {
+  background-color: $baseColor;
+  float: left;
+  padding: 30px;
+  border: 1px dashed $gray;
+  .profile {
+    margin: 15px;
+    &__username, &__avatar {
+      float: left;
+    }
+    &__username {
+      margin-left:20px;
+    }
+    .avatar {
+      width: 50px;
+    }
+  }
+  .profile-title {
+    color: $mainBlueColor;
+  }
+  td {
+    width: 110px;
+  }
+}
