@@ -1,0 +1,8 @@
+.tweet
+  .tweet__account-name
+    = link_to user_path(tweet.user) do
+      = tweet.user.nickname
+  .tweet__body
+    = tweet.body
+  .tweet__time
+    = tweet.created_at

@@ -1,21 +1,17 @@
 .main
   .main-left
-    いまなにしてる？
-    %form
-    = form_for(@tweet) do |f|
-      = f.text_field :body, class: "tweet-form", cols:"30",  rows:"10"
-      = f.submit "ツイートする"
+    = link_to "トップへ戻る", root_path
     .tweet-home
-      ホーム
+      #{@user.nickname}さんのツイート
       .tweets
-        = render @tweets
+        = render partial: "users/tweet",collection: @tweets
         = paginate @tweets
   .main-right
     .profile.clearfix
       .profile__avatar
         = image_tag("noimage.jpeg", class:"avatar")
       .profile__username
-        = current_user.nickname
+        = @user.nickname
     %table
       %tr
         %td
@@ -23,7 +19,7 @@
         %td
           100
         %td
-          = current_user.tweets.count
+          = @user.tweets.count
       %tr.profile-title
         %td.followed
           フォロー
