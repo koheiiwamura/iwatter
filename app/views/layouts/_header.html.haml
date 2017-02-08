@@ -1,0 +1,13 @@
+%header
+  .header-left
+    = link_to image_tag('tweet-logo.jpg', { alt: 'ツイッター', class: "tweet-logo"}), root_path
+  .header-right
+    .item
+      = link_to "ホーム", root_path
+    .item
+      = link_to "友達を検索", "#"
+    .item
+      - if current_user
+        = link_to "ログイン", "#"
+      - else
+        = link_to "ログアウト", "#"
