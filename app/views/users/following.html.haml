@@ -1,0 +1,12 @@
+.main
+  .main-left
+    = link_to "トップへ戻る", root_path
+    |
+    = link_to "#{@user.nickname}さんのフォロワーを見る", followers_user_path(@user)
+    .tweet-home
+      #{@user.nickname}さんは#{@user.followed.count}人をフォローしています
+    = render partial: "users/user", collection: @users
+  .main-right
+    = render partial: "layouts/profile", locals: {user: @user}
+
+
