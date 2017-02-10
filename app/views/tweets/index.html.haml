@@ -26,14 +26,14 @@
           = current_user.tweets.count
       %tr.profile-title
         %td.followed
-          フォロー
-          %br
-          されている
+          = link_to followers_user_path(current_user) do
+            フォロー
+            %br
+            されている
         %td.following
-          フォロー
-          %br
-          している
+          = link_to following_user_path(current_user) do
+            フォロー
+            %br
+            している
         %td.num-of-tweets
-          投稿数
-
-
+          = link_to "投稿数", user_path(current_user)
