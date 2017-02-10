@@ -6,3 +6,7 @@
     = tweet.body
   .tweet__time
     = tweet.created_at
+  - if tweet.user == current_user
+    .tweet__delete-button
+      = link_to tweet_path(tweet), method: :delete do
+        %i.fa.fa-trash-o
