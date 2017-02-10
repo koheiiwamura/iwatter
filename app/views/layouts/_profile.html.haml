@@ -1,0 +1,4 @@
+= render partial: "layouts/profile_detail", locals: {user: current_user}
+- if user != current_user
+  %hr
+  = render partial: "layouts/profile_detail", locals: {user: user}

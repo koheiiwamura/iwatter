@@ -1,0 +1,26 @@
+.profile.clearfix
+  .profile__avatar
+    = image_tag("noimage.jpeg", class:"avatar")
+  .profile__username
+    = user.nickname
+%table
+  %tr
+    %td
+      = user.followers.count
+    %td
+      = user.followed.count
+    %td
+      = user.tweets.count
+  %tr.profile-title
+    %td.followed
+      = link_to followers_user_path(user) do
+        フォロー
+        %br
+        されている
+    %td.following
+      = link_to following_user_path(user) do
+        フォロー
+        %br
+        している
+    %td.num-of-tweets
+      = link_to "投稿数", user_path(user)

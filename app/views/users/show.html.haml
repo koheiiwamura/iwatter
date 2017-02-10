@@ -7,31 +7,9 @@
         = render partial: "users/tweet",collection: @tweets
         = paginate @tweets
   .main-right
-    .profile.clearfix
-      .profile__avatar
-        = image_tag("noimage.jpeg", class:"avatar")
-      .profile__username
-        = @user.nickname
-    %table
-      %tr
-        %td
-          100
-        %td
-          100
-        %td
-          = @user.tweets.count
-      %tr.profile-title
-        %td.followed
-          = link_to followers_user_path(@user) do
-            フォロー
-            %br
-            されている
-        %td.following
-          = link_to following_user_path(@user) do
-            フォロー
-            %br
-            している
-        %td.num-of-tweets
-          = link_to "投稿数", user_path(@user)
+    = render partial: "layouts/profile", locals: {user: @user}
+
+
+
 
 

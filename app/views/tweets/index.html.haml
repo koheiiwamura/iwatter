@@ -1,39 +1,19 @@
 .main
   .main-left
-    いまなにしてる？
-    %form
-    = form_for(@tweet) do |f|
-      = f.text_field :body, class: "tweet-form", cols:"30",  rows:"10"
-      = f.submit "ツイートする"
+    - if current_user
+      いまなにしてる？
+      %form
+      = form_for(@tweet) do |f|
+        = f.text_field :body, class: "tweet-form", cols:"30",  rows:"10"
+        = f.submit "ツイートする"
     .tweet-home
       ホーム
       .tweets
         = render @tweets
         = paginate @tweets
-  .main-right
-    .profile.clearfix
-      .profile__avatar
-        = image_tag("noimage.jpeg", class:"avatar")
-      .profile__username
-        = current_user.nickname
-    %table
-      %tr
-        %td
-          100
-        %td
-          100
-        %td
-          = current_user.tweets.count
-      %tr.profile-title
-        %td.followed
-          = link_to followers_user_path(current_user) do
-            フォロー
-            %br
-            されている
-        %td.following
-          = link_to following_user_path(current_user) do
-            フォロー
-            %br
-            している
-        %td.num-of-tweets
-          = link_to "投稿数", user_path(current_user)
+  - if current_user
+    .main-right
+      = render partial: "layouts/profile", locals: {user: current_user}
+
+
+
