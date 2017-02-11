@@ -5,7 +5,7 @@
     .item
       = link_to "ホーム", root_path
     .item
-      = link_to "友達を検索", "#"
+      = link_to "友達を検索", users_search_path
     .item
       - if current_user
         = link_to "ログアウト", destroy_user_session_path, method: :delete
