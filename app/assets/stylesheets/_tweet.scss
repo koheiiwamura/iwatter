@@ -42,6 +42,10 @@
       top: -40px;
     }
   }
+
+  .non-user{
+    color: red;
+  }
 }
 
 
@@ -61,7 +65,6 @@
         color: $mainBlueColor;
       }
       .btn {
-        // width: 100px;
         line-height: 11px;
       }
     }

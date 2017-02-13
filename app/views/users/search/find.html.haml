@@ -4,6 +4,12 @@
       友人を検索してみよう
       = form_tag(users_search_find_path, method: :get) do
         = text_field :"", :word, class: "tweet-form", placeholder: "キーワード"
-        = submit_tag "検索する"
+        = submit_tag "再検索する"
+    - if @users == []
+      %p.non-user
+        該当するユーザーはいません。
+      %p
+        ↓ユーザー一覧↓
+      = render partial: "users/user", collection: @all_users
+    - else
     = render partial: "users/user", collection: @users
-

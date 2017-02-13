@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "tweets#index"
   resources :tweets, only: [:index, :create, :destroy]
   get 'users/search' => 'users/search#index'
+  get 'users/search/find' => 'users/search#find'
   resources :users, only: :show do
     member do
       get :following, :followers
