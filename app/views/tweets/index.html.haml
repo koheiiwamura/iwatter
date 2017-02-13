@@ -2,10 +2,11 @@
   .main-left
     - if current_user
       いまなにしてる？
-      %form
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: "#{key} tweet-alert")
       = form_for(@tweet) do |f|
-        = f.text_field :body, class: "tweet-form", cols:"30",  rows:"10"
-        = f.submit "ツイートする"
+        = f.text_area :body, class: "tweet-form", size: "65×10", required: true
+        = f.submit "ツイートする", class: "tweet-submit"
     .tweet-home
       ホーム
       .tweets
