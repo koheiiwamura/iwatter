@@ -1,12 +1,15 @@
 .tweet
   .tweet__account-name
-    = link_to user_path(tweet.user) do
+    = link_to user_path(tweet.user), class:"nickname" do
       = tweet.user.nickname
+    @#{tweet.user.username}
   .tweet__body
     = tweet.body
   .tweet__time
     = tweet.created_at
-  - if tweet.user == current_user
-    .tweet__delete-button
+  .tweet__right-button
+    - if tweet.user == current_user
       = link_to tweet_path(tweet), method: :delete do
         %i.fa.fa-trash-o
+    - else
+      = render partial: "users/follow_form", locals: {user: tweet.user}

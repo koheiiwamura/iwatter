@@ -1,8 +1,11 @@
 .profile.clearfix
   .profile__avatar
     = image_tag("noimage.jpeg", class:"avatar")
-  .profile__username
-    = user.nickname
+  .profile__nickname
+    = link_to user_path(user), class:"nickname" do
+      = user.nickname
+    @#{user.username}
+    = render partial: "users/follow_form", locals: {user: user} if user != current_user
 %table
   %tr
     %td

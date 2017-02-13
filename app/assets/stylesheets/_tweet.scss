@@ -20,8 +20,13 @@
     padding: 20px 10px 10px;
     border-bottom: 1px dotted $gray;
     &__account-name {
-      color: $mainBlueColor;
-      font-weight: bold;
+      .nickname {
+        color: $mainBlueColor;
+        font-weight: bold;
+      }
+    }
+    &__username {
+      font-size: 5px;
     }
     &__time {
       font-size: 10px;
@@ -31,7 +36,7 @@
       position: relative;
       top: -25px;
     }
-    &__delete-button {
+    &__right-button {
       float:right;
       position: relative;
       top: -40px;
@@ -47,11 +52,18 @@
   border: 1px dashed $gray;
   .profile {
     margin: 15px;
-    &__username, &__avatar {
+    &__nickname, &__avatar {
       float: left;
     }
-    &__username {
+    &__nickname {
       margin-left:20px;
+      .nickname{
+        color: $mainBlueColor;
+      }
+      .btn {
+        // width: 100px;
+        line-height: 11px;
+      }
     }
     .avatar {
       width: 50px;

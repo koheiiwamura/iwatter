@@ -1,7 +1,7 @@
 .tweet
   .tweet__body
     = link_to user.nickname, user_path(user)
-    / = user.nickname
+    @#{user.username}
   .tweet__time
     = user.tweets.last.try(:body)
   .tweet__follow-button

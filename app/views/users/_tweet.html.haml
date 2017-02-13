@@ -3,7 +3,7 @@
     = tweet.body
   .tweet__time
     = tweet.created_at
-  .tweet__delete-button
+  .tweet__right-button
     = link_to tweet_path(tweet), method: :delete do
       %i.fa.fa-trash-o
 
