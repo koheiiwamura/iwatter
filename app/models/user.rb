@@ -32,4 +32,16 @@ class User < ApplicationRecord
   def email_changed?
     false
   end
+
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user)
+    followed.include?(other_user)
+  end
 end
