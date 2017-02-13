@@ -6,7 +6,7 @@
   .tweet__body
     = tweet.body
   .tweet__time
-    = tweet.created_at
+    = tweet.created_at.to_s(:tweet)
   .tweet__right-button
     - if tweet.user == current_user
       = link_to tweet_path(tweet), method: :delete do
