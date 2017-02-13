@@ -4,5 +4,5 @@
     / = user.nickname
   .tweet__time
     = user.tweets.last.try(:body)
-  .tweet__delete-button
-
+  .tweet__follow-button
+    = render partial: "users/follow_form", locals: {user: user} if current_user

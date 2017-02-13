@@ -31,3 +31,11 @@ a {
   text-decoration: none;
   color: $mainBlueColor;
 }
+.btn {
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px;
+}
+.btn-primary {
+  background-color: $mainBlueColor;
+}
