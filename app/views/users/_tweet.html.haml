@@ -1,9 +1,10 @@
-.tweet
-  .tweet__body
-    = tweet.body
-  .tweet__time
-    = tweet.created_at.to_s(:tweet)
-  .tweet__right-button
-    = link_to tweet_path(tweet), method: :delete do
-      %i.fa.fa-trash-o
+- if tweet.user.visible? || current_user.following?(tweet.user)
+  .tweet
+    .tweet__body
+      = tweet.body
+    .tweet__time
+      = tweet.created_at.to_s(:tweet)
+    .tweet__right-button
+      = link_to tweet_path(tweet), method: :delete do
+        %i.fa.fa-trash-o
 

@@ -5,6 +5,8 @@
     = link_to user_path(user), class:"nickname" do
       = user.nickname
     @#{user.username}
+    - if user.hidden?
+      .fa.fa-key
     = render partial: "users/follow_form", locals: {user: user} if user != current_user
 %table
   %tr

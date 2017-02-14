@@ -2,6 +2,8 @@
   .tweet__body
     = link_to user.nickname, user_path(user)
     @#{user.username}
+    - if user.hidden?
+      .fa.fa-key
   .tweet__time
     = user.tweets.last.try(:body)
   .tweet__follow-button

@@ -4,7 +4,10 @@
     .tweet-home
       #{@user.nickname}さんのツイート
       .tweets
-        = render partial: "users/tweet",collection: @tweets
-        = paginate @tweets
+        - if @user.hidden? && !(current_user.following?(@user))
+          このアカウントは非公開です
+        - else
+          = render partial: "users/tweet",collection: @tweets
+          = paginate @tweets
   .main-right
     = render partial: "layouts/profile", locals: {user: @user}
