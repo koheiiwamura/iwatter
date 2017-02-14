@@ -4,9 +4,9 @@
   float: left;
   background-color: $baseColor;
 
-  .tweet-form {
-    width: 500px;
-    height: 50px;
+  .tweet-submit {
+    position: relative;
+    top: -20px;
   }
   .tweet-home {
     padding-top: 40px;
@@ -14,6 +14,10 @@
   .tweets {
     border-top: 1px dotted $gray;
     margin-top: 10px;
+  }
+  .tweet-alert {
+    color: red;
+    float:right;
   }
 
   .tweet {
@@ -77,5 +81,22 @@
   }
   td {
     width: 110px;
+  }
+}
+.devise-flash {
+  background-color: red;
+  color: red;
+}
+#error_explanation {
+  background-color: yellow;
+  color: red;
+  padding: 10px;
+  border-radius: 5%;
+}
+.alert {
+  .container {
+    color: red;
+    background-color: yellow;
+    text-align: center;
   }
 }

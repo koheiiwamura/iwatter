@@ -9,8 +9,13 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
-    redirect_to root_path
+    tweet = Tweet.new(tweet_params)
+    if tweet.save
+      redirect_to root_path
+    else
+      flash[:alert] = "140文字以上で入力してください   ※半角・全角問わず"
+      redirect_to action: :index, alert: 'メッセージを投稿できませんでした'
+    end
   end
 
   def destroy

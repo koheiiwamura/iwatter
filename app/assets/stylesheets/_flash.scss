@@ -1,0 +1,17 @@
+.alert-notice, .alert-alert{
+  text-align: center;
+  line-height: 30px;
+  color: $baseColor;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.alert-notice {
+  background-color: $mainBlueColor;
+}
+.alert-alert{
+  background-color: #FF6347;
+}
+.devise-flash {
+  background-color: red;
+}
