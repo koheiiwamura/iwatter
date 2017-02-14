@@ -2,17 +2,14 @@
   .main-left
     - if current_user
       いまなにしてる？
-      = form_for(@tweet) do |f|
+      = form_for(@tweet, remote: true) do |f|
         = f.text_area :body, class: "tweet-form", size: "65×10", required: true
         = f.submit "ツイートする", class: "tweet-submit"
     .tweet-home
       ホーム
       .tweets
         = render @tweets
-        = paginate @tweets
+      = paginate @tweets
   - if current_user
     .main-right
       = render partial: "layouts/profile", locals: {user: current_user}
-
-
-
