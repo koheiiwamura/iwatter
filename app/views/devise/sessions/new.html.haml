@@ -7,11 +7,11 @@
     .field
       = f.label :username, "アカウント名"
       %br/
-      = f.text_field :username, autofocus: true, required: true
+      = f.text_field :username, autofocus: true, required: true, pattern:"[a-zA-Z0-9,_,-]{4,20}", title:"半角英数字,「-」「_」のみ入力可能です。\n文字数は4~20文字です"
     .field
       = f.label :password, "パスワード"
       %br/
-      = f.password_field :password, autocomplete: "off", required: true
+      = f.password_field :password, autocomplete: "off", pattern:"[a-zA-Z0-9]{4,8}", title: "半角英数字のみ入力可能です。\n文字数は4~8文字です"
       - if devise_mapping.rememberable?
         .field
           = f.check_box :remember_me
