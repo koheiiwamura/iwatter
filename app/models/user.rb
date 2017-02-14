@@ -3,8 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :nickname, presence: true, uniqueness: true
-  validates :username, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true,
+                       length: { maximum: 20, minimum: 4 }, format: { with: /\A[a-zA-Z\d\s.-]*\z/ }
+  validates :username, presence: true, uniqueness: true,
+                       length: { maximum: 20, minimum: 4 }, format: { with: /\A[a-zA-Z\d\s.-]*\z/ }
+  validates :email, presence: true, uniqueness: true,
+                    length: { maximum: 100 }
+  validates :password, presence: true,
+                       length: { maximum: 8, minimum: 4 }, format: { with: /\A[a-zA-Z\d\s]*\z/ }
+  validates :password_confirmation, presence: true,
+                                    length: { maximum: 8, minimum: 4 }, format: { with: /\A[a-zA-Z\d\s]*\z/ }
   enum visibility: { visible: 0, hidden: 1 }
   has_many :tweets
   has_many :active_relationships,  class_name:  "Relationship",
