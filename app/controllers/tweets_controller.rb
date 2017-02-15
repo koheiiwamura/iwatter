@@ -1,11 +1,19 @@
 class TweetsController < ApplicationController
-  # before_action :move_to_index, except: :index
   before_action :authenticate_user!, except: :index
 
   def index
     @user = current_user
     @tweets = Tweet.page(params[:page]).per(10).order("created_at DESC")
     @tweet = Tweet.new
+    respond_to do |format|
+      format.html { render :index }
+      format.json {
+        tweets = @tweets.map do |tweet|
+          tweet.json_tweet
+        end
+        render json: tweets
+      }
+    end
   end
 
   def create
@@ -28,9 +36,5 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:body).merge(user_id: current_user.id)
   end
-
-  # def move_to_index
-  #   redirect_to new_user_session_path unless user_signed_in?
-  # end
 
 end

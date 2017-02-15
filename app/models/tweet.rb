@@ -8,6 +8,13 @@ class Tweet < ApplicationRecord
   end
 
   def json_tweet
-    {body: body}
+    { id: id,
+      body: body,
+      created_at: created_at.to_s(:tweet),
+      username: user.username,
+      user_nickname: user.nickname,
+      visible: user.visible?,
+      user_id: user.id
+    }
   end
 end
