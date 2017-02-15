@@ -23,6 +23,8 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :followed, through: :active_relationships
   has_many :followers, through: :passive_relationships
+  has_many :likes
+  has_many :like_tweets, through: :likes, source: :tweet
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

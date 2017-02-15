@@ -1,10 +1,14 @@
 .main
   .main-left
     = link_to "トップへ戻る", root_path
+    = link_to "いいねしたツイート", user_likes_path(current_user)
     .tweet-home
-      #{@user.nickname}さんのツイート
+      - if @user == current_user
+        あなたのツイート
+      - else
+        #{@user.nickname}さんのツイート
       .tweets
-        - if @user.hidden? && !(current_user.following?(@user))
+        - if (@user.hidden? && !(current_user.following?(@user))) && @user != current_user
           このアカウントは非公開です
         - else
           = render partial: "users/tweet",collection: @tweets

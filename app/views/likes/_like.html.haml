@@ -1,0 +1,9 @@
+- if user_signed_in?
+  - if tweet.user_likes?(current_user)
+    = link_to tweet_like_path(tweet, tweet.likes.find_by(user_id: current_user.id).id), method: :delete, remote: true do
+      .fa.fa-heart= tweet.likes.count
+  - else
+    = link_to tweet_likes_path(tweet), method: :post, remote: true do
+      .fa.fa-heart-o
+      - if tweet.likes.count != 0
+        = tweet.likes.count

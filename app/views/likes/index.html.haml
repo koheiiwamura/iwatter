@@ -1,0 +1,11 @@
+.main
+  .main-left
+    = link_to "トップへ戻る", root_path
+    = link_to "マイページに戻る", user_path(current_user)
+    .tweet-home
+      いいねしたツイート一覧
+      .tweets
+        = render partial: "tweets/tweet",collection: @tweets
+      = paginate @tweets
+  .main-right
+    = render partial: "layouts/profile", locals: {user: current_user}
