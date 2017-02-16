@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :nickname, presence: true, uniqueness: true,
-                       length: { maximum: 20, minimum: 4 }, format: { with: /\A[a-zA-Z\d\s.-]*\z/ }
+                       length: { maximum: 20, minimum: 4 }
   validates :username, presence: true, uniqueness: true,
                        length: { maximum: 20, minimum: 4 }, format: { with: /\A[a-zA-Z\d\s.-]*\z/ }
   validates :email, presence: true, uniqueness: true,
