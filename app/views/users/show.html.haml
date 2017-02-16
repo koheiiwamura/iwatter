@@ -3,10 +3,7 @@
     = link_to "トップへ戻る", root_path
     = link_to "いいねしたツイート", user_likes_path(current_user)
     .tweet-home
-      - if @user == current_user
-        あなたのツイート
-      - else
-        #{@user.nickname}さんのツイート
+      = @user == current_user ? "あなたのツイート": "#{@user.nickname}さんのツイート"
       .tweets
         - if (@user.hidden? && !(current_user.following?(@user))) && @user != current_user
           このアカウントは非公開です

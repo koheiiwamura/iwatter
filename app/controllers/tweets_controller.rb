@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
       @tweets = Tweet.page(params[:page]).per(10).order("created_at DESC")
     else
       flash[:alert] = "140文字以上で入力してください   ※半角・全角問わず"
-      redirect_to action: :index, alert: 'メッセージを投稿できませんでした'
+      redirect_to action: :index
     end
   end
 

@@ -1,0 +1,29 @@
+header {
+  background-color: $mainBlueColor;
+  height: 60px;
+  .header-left {
+    float:left;
+    margin-left: 10px;
+    .tweet-logo {
+      height: 60px;
+    }
+  }
+  .header-right {
+    float:right;
+    background-color: $backGroundColor;
+    margin: 3px 40px;
+    border-radius: 7px;
+    .item{
+      float: left;
+      padding: 15px 10px;
+      color: $mainBlueColor;
+      a{
+        color: $mainBlueColor;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #65bff6;
+      }
+    }
+  }
+}

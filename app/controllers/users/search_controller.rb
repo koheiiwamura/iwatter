@@ -8,11 +8,7 @@ class Users::SearchController < ApplicationController
   end
 
   def find
-    if params[:word] == ""
-      @users = []
-    else
-      @users = User.where("concat(nickname, username) LIKE ?", "%#{params[:word]}%")
-    end
+    params[:word] == "" ? @users = []: @users = User.where("concat(nickname, username) LIKE ?", "%#{params[:word]}%")
     @all_users = User.all
   end
 end
