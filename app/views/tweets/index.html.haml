@@ -7,7 +7,7 @@
         = f.submit "ツイートする", class: "tweet-submit"
     .tweet-home
       ホーム
-      .tweets
+      .tweets#js-tweet
         = render @tweets
       = paginate @tweets
   - if current_user
