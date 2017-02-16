@@ -36,20 +36,20 @@ $(function(){
     return html;
   };
 
-  setInterval(function() {
-    $.ajax({
-      url: '.',
-      type: 'get',
-      dataType: 'json'
-    })
-    .done(function(data){
-      $('.tweets').empty();
-      $.each(data,function(num, tweet){
-        var html = buildHTML(tweet);
-        $('.tweets').append(html);
-      });
-    });
-  },5000);
+  // setInterval(function() {
+  //   $.ajax({
+  //     url: '.',
+  //     type: 'get',
+  //     dataType: 'json'
+  //   })
+  //   .done(function(data){
+  //     $('.tweets').empty();
+  //     $.each(data,function(num, tweet){
+  //       var html = buildHTML(tweet);
+  //       $('.tweets').append(html);
+  //     });
+  //   });
+  // },5000);
 
   $(".fa-trash-o").on('click', function(){
     if(confirm('本当に削除しますか？')){
